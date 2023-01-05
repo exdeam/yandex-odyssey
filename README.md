@@ -3,11 +3,11 @@
 В deployment переменными указываются адреса и порт кластеров postgres
 ```
 - name: POSTGRES_HOST1
-  value: postgres-test1.blps-ekb99-manual.svc.cluster.local
+  value: postgres-test1.cluster.local
 - name: POSTGRES_HOST2
-  value: postgres-test2.blps-ekb99-manual.svc.cluster.local
+  value: postgres-test2.cluster.local
 - name: POSTGRES_HOST3
-  value: postgres-test3.blps-ekb99-manual.svc.cluster.local
+  value: postgres-test3.cluster.local
 - name: POSTGRES_PORT1
   value: "5432"
 - name: POSTGRES_PORT2
@@ -26,7 +26,7 @@
 Нюансы
 
 Если в values.yaml не указаны переменные POSTGRES_HOST2_DB_LIST и POSTGRES_HOST3_DB_LIST, то все маршруты будут направлены на POSTGRES_HOST1. 
-Учетная запись, указываемая в secret для deployment, должна быть одинаковой на всех трех кластерах. Лучше всего создать для этого отдельную учетку на всех трех кластерах и указать ее в секрете zif-yandex-odyssey.
+Учетная запись, указываемая в secret для deployment, должна быть одинаковой на всех трех кластерах. Лучше всего создать для этого отдельную учетку на всех трех кластерах и указать ее в секрете yandex-odyssey.
 Для изменения количества кластеров postgres образ нужно будет пересобирать. Сейчас образ настроен на использование трех кластеров.
 
 Дебаг
